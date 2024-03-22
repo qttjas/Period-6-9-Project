@@ -36,3 +36,16 @@ public class OutputWindow {
         textPane.setText("");  // set panel's text to empty string to "reset it"
     }
 }
+
+
+// MAZE
+//PLAYERS WILL ENTER THEIR NAME
+//PRINTS OUT RULES
+//AND THEN W A S D CONTROLS
+//MENU IF U WANNA DO MAP 1 OR MAP 2
+//OUTPUT WINDOW (CONTROL WHERE THEY WANNA GO YES)
+//BOUNDARIES IF THEY GO OUT OF BOUND IT STOPS
+//IF THEY GET TO THE EXIT THEY WIN YAY
+
+
+
