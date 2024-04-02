@@ -1,16 +1,11 @@
-import java.awt.Color;
-
 public class Player {
     private String name;
-    private OutputWindow window;
+    private boolean hasWon;
 
-    public Player(String name, OutputWindow window) {
+    public Player(String name) {
         this.name = name;
-        this.window = window;
+        this.hasWon = false;
     }
 
-    public void welcome() {
-        window.clear();
-        window.addTextToWindow("Welcome " + name, Color.blue);
-    }
+    // others
 }

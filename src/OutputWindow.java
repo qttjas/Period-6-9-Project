@@ -12,40 +12,38 @@ public class OutputWindow {
     private JTextPane textPane;
 
     public OutputWindow() {
-        JFrame frame = new JFrame("Test");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // causes program to end when window is X'd out
-        frame.setSize(500, 400); // window size
-        frame.setLocation(300, 50); // where on screen window appears
-        textPane = new JTextPane(); // panel that can handle custom text
-        textPane.setEditable(false); // prevents user from typing into window
-        doc = textPane.getStyledDocument(); // call getter method for panel's style doc
-        style = doc.addStyle("my style", null); // add a custom style to the doc
-        StyleConstants.setFontSize(style, 25); // apply font size to custom style
-        frame.add(textPane); // add the panel to the frame
-        frame.setVisible(true); // display the frame on screen
+        JFrame frame = new JFrame("A-maze-ing Adventures");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 400);
+        frame.setLocationRelativeTo(null); // Center the window
+        textPane = new JTextPane();
+        textPane.setEditable(false);
+        doc = textPane.getStyledDocument();
+        style = doc.addStyle("my style", null);
+        StyleConstants.setFontSize(style, 25);
+        frame.add(textPane);
+        frame.setVisible(true);
     }
 
     public void addTextToWindow(String text, Color color) {
-        StyleConstants.setForeground(style, color); // apply color to custom style
+        StyleConstants.setForeground(style, color);
         try {
-            doc.insertString(doc.getLength(), text, style); } // insert text at end the panel
-        catch (Exception e) { }
+            doc.insertString(doc.getLength(), text, style);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void clear() {
-        textPane.setText("");  // set panel's text to empty string to "reset it"
+        textPane.setText("");
     }
 }
 
-
-// MAZE
+//MAZE
 //PLAYERS WILL ENTER THEIR NAME
 //PRINTS OUT RULES
 //AND THEN W A S D CONTROLS
-//MENU IF U WANNA DO MAP 1 OR MAP 2
-//OUTPUT WINDOW (CONTROL WHERE THEY WANNA GO YES)
+//MENU IF YOU WANT TO DO MAP 1 OR MAP 2
+//OUTPUT WINDOW (CONTROL WHERE THEY WANT TO GO YES)
 //BOUNDARIES IF THEY GO OUT OF BOUND IT STOPS
 //IF THEY GET TO THE EXIT THEY WIN YAY
-
-
-
