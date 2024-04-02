@@ -12,5 +12,6 @@ public class Board {
 
     public void moveDirection(char direction) {
         // Logic for moving player based on direction
+        //
     }
 }
