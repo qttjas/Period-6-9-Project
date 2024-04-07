@@ -1,18 +1,26 @@
-import java.util.Scanner;
-public class Board {
-    private char[][] grid;
-    private int playerRow;
-    private int playerCol;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
-    public Board(char[][] grid, int initialRow, int initialCol) {
-        this.grid = grid;
-        this.playerRow = initialRow;
-        this.playerCol = initialCol;
-    }
+public class Board implements ActionListener {
 
-    public void moveDirection(char direction) {
-        // Logic for moving player based on direction
-        //
+
+
+    public Board() {
 
     }
+
 }
+
+//MAZE
+//PLAYERS WILL ENTER THEIR NAME
+//PRINTS OUT RULES
+//AND THEN W A S D CONTROLS
+//MENU IF YOU WANT TO DO MAP 1 OR MAP 2
+//OUTPUT WINDOW (CONTROL WHERE THEY WANT TO GO YES)
+//BOUNDARIES IF THEY GO OUT OF BOUND IT STOPS
+//IF THEY GET TO THE EXIT THEY WIN YAY
