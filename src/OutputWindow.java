@@ -1,6 +1,5 @@
-import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JTextPane;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -10,33 +9,26 @@ public class OutputWindow {
     private StyledDocument doc;
     private Style style;
     private JTextPane textPane;
+    private JFrame frame;
+    private JPanel panel;
+    private JButton buttonMap1;
+    private JButton buttonMap2;
 
     public OutputWindow() {
-        JFrame frame = new JFrame("A-maze-ing Adventures");
+        frame = new JFrame("A-maze-ing Adventures");
+        buttonMap1 = new JButton("Map 1");
+        buttonMap2 = new JButton("Map 2");
+        panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(100,100,100,100));
+        panel.setLayout(new GridLayout(0, 1));
+
+        frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
-        frame.setLocationRelativeTo(null); // Center the window
-        textPane = new JTextPane();
-        textPane.setEditable(false);
-        doc = textPane.getStyledDocument();
-        style = doc.addStyle("my style", null);
-        StyleConstants.setFontSize(style, 25);
-        frame.add(textPane);
+        frame.pack();
         frame.setVisible(true);
     }
 
-    public void addTextToWindow(String text, Color color) {
-        StyleConstants.setForeground(style, color);
-        try {
-            doc.insertString(doc.getLength(), text, style);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void clear() {
-        textPane.setText("");
-    }
 }
 
 //MAZE
