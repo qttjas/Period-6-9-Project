@@ -1,4 +1,4 @@
-public class Map1 extends MazeMap {
+public class Map1 extends Board {
     public Map1(String playerName) {
         super(generateMap1(), 0, 0, playerName);
     }

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a76bb3e5-c4f8-4a00-a7fa-f573ed9f8bc2" name="Changes" comment="edited jframe, jpanel, jbutton, etc in the output window">
+    <list default="true" id="a76bb3e5-c4f8-4a00-a7fa-f573ed9f8bc2" name="Changes" comment="edits to maze map and removed outputwindow.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Map2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MazeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MazeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OutputWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.MazeMap.executor": "Run",
     "Application.Runner.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -47,9 +49,16 @@
     "onboarding.tips.debug.path": "C:/Users/zheng/Downloads/windowDemo/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Runner">
+  <component name="RunManager" selected="Application.MazeMap">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Maze" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MazeMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MazeMap" />
       <module name="Maze" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -64,6 +73,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MazeMap" />
         <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Main" />
       </list>
@@ -101,12 +111,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712514756221</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="edits to maze map and removed outputwindow.java">
+      <option name="closed" value="true" />
+      <created>1712527597555</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712527597555</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="welcome players" />
     <MESSAGE value="edited jframe, jpanel, jbutton, etc in the output window" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited jframe, jpanel, jbutton, etc in the output window" />
+    <MESSAGE value="edits to maze map and removed outputwindow.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="edits to maze map and removed outputwindow.java" />
   </component>
 </project>

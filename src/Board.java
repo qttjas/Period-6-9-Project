@@ -1,20 +1,11 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
-
-public class Board implements ActionListener {
-
-
+public class Board {
 
     public Board() {
 
     }
 
 }
+
 
 //MAZE
 //PLAYERS WILL ENTER THEIR NAME
