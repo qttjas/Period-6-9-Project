@@ -1,13 +1,13 @@
 public class Board {
 
     private char[][] map;
-    private int startX;
-    private int startY;
+    private int xPt;
+    private int yPt;
 
     public Board(char[][] map) {
         this.map = map;
-        this.startX = getStartX();
-        this.startY = getStartY();
+        xPt = getStartX();
+        yPt = getStartY();
     }
 
     public int getRows() {
@@ -16,6 +16,12 @@ public class Board {
 
     public int getCols() {
         return map[0].length;
+    }
+    public int getXPt() {
+        return xPt;
+    }
+    public int getYPt() {
+        return yPt;
     }
 
     public int getStartX() {
@@ -44,9 +50,56 @@ public class Board {
         return map[x][y] == 'F';
     }
 
-    public boolean isObstacle(int x, int y) {
+    public boolean wall(int x, int y) {
         return map[x][y] == '⬛';
     }
+
+    public void setxPt(int x) {
+        xPt = x;
+    }
+    public void setyPt(int y) {
+        yPt = y;
+    }
+    public void move(String letter) {
+        int newX = xPt;
+        int newY = yPt;
+        switch (letter) {
+            case "W":
+                newY--;
+                break;
+            case "A":
+                newX--;
+                break;
+            case "S":
+                newY++;
+                break;
+            case "D":
+                newX++;
+                break;
+        }
+        if (validMove(letter, newX, newY)) {
+            xPt = newX;
+            yPt = newY;
+        }
+    }
+
+
+    public boolean validMove(String letter, int x, int y) {
+        switch (letter) {
+            case "W":
+                return x - 1 >= 0 && !wall(x - 1, y);
+            case "A":
+                return y - 1 >= 0 && !wall(x, y - 1);
+            case "S":
+                return x + 1 < map.length && !wall(x + 1, y);
+            case "D":
+                return y + 1 < map[0].length && !wall(x, y + 1);
+            default:
+                return false;
+        }
+    }
+
+
 }
 
 

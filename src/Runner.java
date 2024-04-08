@@ -1,17 +1,10 @@
-import java.awt.*;
-import java.util.Scanner;
 
 public class Runner {
     public String name;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Welcome to A-maze-ing Adventures! Enter your name: ");
-        String name = scanner.nextLine();
-
-        // Print rules
         printRules();
 
+        MazeMap maze = new MazeMap();
     }
 
     private static void printRules() {

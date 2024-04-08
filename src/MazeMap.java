@@ -11,7 +11,7 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
     private JButton buttonMap2;
     private Board map;
     private JPanel mazePanel;
-
+    private boolean finished;
 
     public MazeMap() {
         setupGUI();
@@ -27,6 +27,7 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
                 super.paintComponent(g);
                 if (map != null) {
                     displayMaze(g);
+                    displayPlayer(g);
                 }
             }
         };
@@ -62,11 +63,71 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
         mazePanel.revalidate();
     }
 
+    public static void main(String[] args) {
+        new MazeMap();
+    }
+
+    private void movePts(String direction) {
+        int newX = map.getXPt();
+        int newY = map.getYPt();
+
+        switch (direction) {
+            case "W":
+                newX--;
+                break;
+            case "A":
+                newY--;
+                break;
+            case "S":
+                newX++;
+                break;
+            case "D":
+                newY++;
+                break;
+        }
+
+        if (newX >= 0 && newX < map.getRows() && newY >= 0 && newY < map.getCols() && !map.wall(newX, newY)) {
+            map.move(direction);
+            if (map.isGoalReached(map.getXPt(), map.getYPt())) {
+                finished = true;
+                JOptionPane.showMessageDialog(this, "Congratulations! You reached the goal!");
+            }
+            repaint();
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (map != null) {
+            int keyCode = e.getKeyCode();
+            switch (keyCode) {
+                case KeyEvent.VK_W:
+                    movePts("W");
+                    break;
+                case KeyEvent.VK_A:
+                    movePts("A");
+                    break;
+                case KeyEvent.VK_S:
+                    movePts("S");
+                    break;
+                case KeyEvent.VK_D:
+                    movePts("D");
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
     private void displayMaze(Graphics g) {
-        int size = 20; // Adjust size according to your preference
+        int size = 20;
         for (int i = 0; i < map.getRows(); i++) {
             for (int j = 0; j < map.getCols(); j++) {
-                if (map.isObstacle(i, j)) {
+                if (map.wall(i, j)) {
                     g.setColor(Color.BLACK);
                     g.fillRect(j * size, i * size, size, size);
                 } else if (map.isGoalReached(i, j)) {
@@ -77,31 +138,9 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    //tester for display map
-    public static void main(String[] args) {
-        new MazeMap();
+    private void displayPlayer(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRoundRect(map.getYPt() * 20, map.getXPt() * 20, 20, 20, 15, 15);
     }
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.VK_W:
-                //will add controls to some class
-                break;
-            case KeyEvent.VK_A:
-                //will add controls to some class
-                break;
-            case KeyEvent.VK_S:
-                //will add controls to some class
-                break;
-            case KeyEvent.VK_D:
-                //will add controls to some class
-                break;
-        }
-    }
-    @Override
-    public void keyTyped(KeyEvent e) {}
-    @Override
-    public void keyReleased(KeyEvent e) {}
 }
 
