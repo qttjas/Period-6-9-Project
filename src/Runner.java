@@ -11,12 +11,7 @@ public class Runner {
 
         // Print rules
         printRules();
-        MazeMap maze = new MazeMap() {
-            @Override
-            protected void paintComponent(Graphics g) {
 
-            }
-        };
     }
 
     private static void printRules() {

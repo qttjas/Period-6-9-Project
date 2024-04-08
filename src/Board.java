@@ -3,10 +3,11 @@ public class Board {
     private char[][] map;
     private int startX;
     private int startY;
-    public Board() {
-        startX = 0;
-        startY = 0;
-        map = new char[][] {{0}, {0}};
+
+    public Board(char[][] map) {
+        this.map = map;
+        this.startX = getStartX();
+        this.startY = getStartY();
     }
 
     public int getRows() {
@@ -16,15 +17,33 @@ public class Board {
     public int getCols() {
         return map[0].length;
     }
+
     public int getStartX() {
-        return startX;
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j] == 'S') {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
+
     public int getStartY() {
-        return startY;
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j] == 'S') {
+                    return j;
+                }
+            }
+        }
+        return -1;
     }
+
     public boolean isGoalReached(int x, int y) {
         return map[x][y] == 'F';
     }
+
     public boolean isObstacle(int x, int y) {
         return map[x][y] == '⬛';
     }

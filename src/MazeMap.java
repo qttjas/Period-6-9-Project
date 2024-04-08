@@ -1,74 +1,81 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
-public abstract class MazeMap extends JFrame implements ActionListener {
+public class MazeMap extends JPanel implements ActionListener {
 
-    private JTextPane textPane;
-    private JFrame frame;
-    private JPanel panel;
     private JButton buttonMap1;
     private JButton buttonMap2;
     private Board map;
-    private static final int SIZE = 50;
-    private Graphics g;
+    private JPanel mazePanel;
+
 
     public MazeMap() {
         setupGUI();
     }
 
     private void setupGUI() {
-        frame = new JFrame("A-maze-ing Adventures");
+        JFrame frame = new JFrame("A-maze-ing Adventures");
         buttonMap1 = new JButton("Map 1");
         buttonMap2 = new JButton("Map 2");
-        panel = new JPanel() {
+        mazePanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
-                super.paintComponents(g);
-                displayMaze(g);
+                super.paintComponent(g);
+                if (map != null) {
+                    displayMaze(g);
+                }
             }
         };
-        panel.setBorder(BorderFactory.createEmptyBorder(100,100,100,100));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(buttonMap1);
-        panel.add(buttonMap2);
+        mazePanel.setPreferredSize(new Dimension(200, 300));
+        mazePanel.setBorder(BorderFactory.createEmptyBorder(100, 100, 100, 100));
+        mazePanel.setLayout(new GridLayout(1, 0));
+
+        mazePanel.add(buttonMap1);
+        mazePanel.add(buttonMap2);
 
         buttonMap1.addActionListener(this);
         buttonMap2.addActionListener(this);
 
-        frame.add(panel, BorderLayout.CENTER);
+        frame.add(mazePanel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 400);
-        frame.pack();
+        frame.setSize(400, 400);
         frame.setVisible(true);
     }
 
-   @Override
+    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Map 1")){
+        if (e.getSource() == buttonMap1) {
             map = new Map1();
-        }else if (e.getActionCommand().equals("Map 2")) {
+            mazePanel.repaint();
+        } else if (e.getSource() == buttonMap2) {
             map = new Map2();
-        }else {
-            System.out.println("pick one plz");
+            mazePanel.repaint();
         }
+        mazePanel.remove(buttonMap1);
+        mazePanel.remove(buttonMap2);
+        mazePanel.revalidate();
     }
 
     private void displayMaze(Graphics g) {
+        int size = 20; // Adjust size according to your preference
         for (int i = 0; i < map.getRows(); i++) {
             for (int j = 0; j < map.getCols(); j++) {
                 if (map.isObstacle(i, j)) {
                     g.setColor(Color.BLACK);
-                    g.fillRect(j * SIZE, i * SIZE, SIZE, SIZE);
+                    g.fillRect(j * size, i * size, size, size);
                 } else if (map.isGoalReached(i, j)) {
                     g.setColor(Color.GREEN);
-                    g.fillRect(j * SIZE, i * SIZE, SIZE, SIZE);
+                    g.fillRect(j * size, i * size, size, size);
                 }
             }
         }
     }
 
-    protected abstract void paintComponent(Graphics g);
+    //tester for display map
+    public static void main(String[] args) {
+        new MazeMap();
+    }
 }
 
