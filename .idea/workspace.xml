@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a76bb3e5-c4f8-4a00-a7fa-f573ed9f8bc2" name="Changes" comment="">
+    <list default="true" id="a76bb3e5-c4f8-4a00-a7fa-f573ed9f8bc2" name="Changes" comment="learned about keycode, keylistener and added them to the mazemap&#10;WASD and boundaries should be added in a class so player can move">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MazeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MazeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.MazeMap.executor": "Run",
-    "Application.Runner.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/zheng/Downloads/windowDemo/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MazeMap.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Runner.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/zheng/Downloads/windowDemo/Main.java&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.MazeMap">
+}</component>
+  <component name="RunManager" selected="Application.Runner">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Maze" />
@@ -73,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MazeMap" />
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.MazeMap" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -163,5 +161,20 @@
     <MESSAGE value="displayed maps, edited map1 for border and looks better" />
     <MESSAGE value="learned about keycode, keylistener and added them to the mazemap&#10;WASD and boundaries should be added in a class so player can move" />
     <option name="LAST_COMMIT_MESSAGE" value="learned about keycode, keylistener and added them to the mazemap&#10;WASD and boundaries should be added in a class so player can move" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/MazeMap.java</url>
+          <line>52</line>
+          <properties class="MazeMap" method="actionPerformed">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

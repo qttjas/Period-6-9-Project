@@ -51,15 +51,17 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == buttonMap1) {
-            map = new Map1();
-            mazePanel.repaint();
-        } else if (e.getSource() == buttonMap2) {
+        if (e.getSource() == buttonMap2) {
             map = new Map2();
             mazePanel.repaint();
+            mazePanel.remove(buttonMap1);
+            mazePanel.remove(buttonMap2);
+        } else if (e.getSource() == buttonMap1) {
+            map = new Map1();
+            mazePanel.repaint();
+            mazePanel.remove(buttonMap2);
+            mazePanel.remove(buttonMap1);
         }
-        mazePanel.remove(buttonMap1);
-        mazePanel.remove(buttonMap2);
         mazePanel.revalidate();
     }
 
@@ -70,36 +72,25 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
     private void movePts(String direction) {
         int newX = map.getXPt();
         int newY = map.getYPt();
-
-        switch (direction) {
-            case "W":
-                newX--;
-                break;
-            case "A":
-                newY--;
-                break;
-            case "S":
-                newX++;
-                break;
-            case "D":
-                newY++;
-                break;
-        }
-
-        if (newX >= 0 && newX < map.getRows() && newY >= 0 && newY < map.getCols() && !map.wall(newX, newY)) {
-            map.move(direction);
+        System.out.println(newX + ", " + newY);
+        System.out.println("here");
+        //if (newX >= 0 && newX < map.getRows() && newY >= 0 && newY < map.getCols() && !map.wall(newX, newY)) {
+        if (map.move(direction)) {
+            System.out.println("in here");
             if (map.isGoalReached(map.getXPt(), map.getYPt())) {
                 finished = true;
                 JOptionPane.showMessageDialog(this, "Congratulations! You reached the goal!");
             }
-            repaint();
+            mazePanel.repaint();
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("Test");
         if (map != null) {
             int keyCode = e.getKeyCode();
+            System.out.println("test2");
             switch (keyCode) {
                 case KeyEvent.VK_W:
                     movePts("W");
@@ -140,7 +131,7 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
 
     private void displayPlayer(Graphics g) {
         g.setColor(Color.RED);
-        g.fillRoundRect(map.getYPt() * 20, map.getXPt() * 20, 20, 20, 15, 15);
+        g.fillRoundRect(map.getXPt() * 20, map.getYPt() * 20, 20, 20, 15, 15);
     }
 }
 

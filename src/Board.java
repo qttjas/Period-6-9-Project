@@ -24,7 +24,7 @@ public class Board {
         return yPt;
     }
 
-    public int getStartX() {
+    public int getStartY() {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 if (map[i][j] == 'S') {
@@ -35,7 +35,7 @@ public class Board {
         return -1;
     }
 
-    public int getStartY() {
+    public int getStartX() {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 if (map[i][j] == 'S') {
@@ -51,6 +51,9 @@ public class Board {
     }
 
     public boolean wall(int x, int y) {
+        if (x >= map.length || x < 0 || y >= map[0].length || y < 0) {
+            return true;
+        }
         return map[x][y] == '⬛';
     }
 
@@ -60,7 +63,7 @@ public class Board {
     public void setyPt(int y) {
         yPt = y;
     }
-    public void move(String letter) {
+    public boolean move(String letter) {
         int newX = xPt;
         int newY = yPt;
         switch (letter) {
@@ -80,7 +83,9 @@ public class Board {
         if (validMove(letter, newX, newY)) {
             xPt = newX;
             yPt = newY;
+            return true;
         }
+        return false;
     }
 
 
