@@ -1,9 +1,33 @@
 public class Board {
 
+    private char[][] map;
+    private int startX;
+    private int startY;
     public Board() {
-
+        startX = 0;
+        startY = 0;
+        map = new char[][] {{0}, {0}};
     }
 
+    public int getRows() {
+        return map.length;
+    }
+
+    public int getCols() {
+        return map[0].length;
+    }
+    public int getStartX() {
+        return startX;
+    }
+    public int getStartY() {
+        return startY;
+    }
+    public boolean isGoalReached(int x, int y) {
+        return map[x][y] == 'F';
+    }
+    public boolean isObstacle(int x, int y) {
+        return map[x][y] == '⬛';
+    }
 }
 
 
