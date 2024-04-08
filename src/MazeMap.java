@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class MazeMap extends JPanel implements ActionListener {
+public class MazeMap extends JPanel implements ActionListener, KeyListener {
 
     private JButton buttonMap1;
     private JButton buttonMap2;
@@ -31,6 +33,8 @@ public class MazeMap extends JPanel implements ActionListener {
         mazePanel.setPreferredSize(new Dimension(200, 300));
         mazePanel.setBorder(BorderFactory.createEmptyBorder(100, 100, 100, 100));
         mazePanel.setLayout(new GridLayout(1, 0));
+        mazePanel.setFocusable(true);
+        mazePanel.addKeyListener(this);
 
         mazePanel.add(buttonMap1);
         mazePanel.add(buttonMap2);
@@ -77,5 +81,27 @@ public class MazeMap extends JPanel implements ActionListener {
     public static void main(String[] args) {
         new MazeMap();
     }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        switch (keyCode) {
+            case KeyEvent.VK_W:
+                //will add controls to some class
+                break;
+            case KeyEvent.VK_A:
+                //will add controls to some class
+                break;
+            case KeyEvent.VK_S:
+                //will add controls to some class
+                break;
+            case KeyEvent.VK_D:
+                //will add controls to some class
+                break;
+        }
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
 
