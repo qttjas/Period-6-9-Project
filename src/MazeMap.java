@@ -118,7 +118,7 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
         int size = 20;
         for (int i = 0; i < map.getRows(); i++) {
             for (int j = 0; j < map.getCols(); j++) {
-                if (map.wall(i, j)) {
+                if (map.wall(j, i)) {
                     g.setColor(Color.BLACK);
                     g.fillRect(j * size, i * size, size, size);
                 } else if (map.isGoalReached(i, j)) {

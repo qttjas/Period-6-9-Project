@@ -54,7 +54,7 @@ public class Board {
         if (x >= map.length || x < 0 || y >= map[0].length || y < 0) {
             return true;
         }
-        return map[x][y] == '⬛';
+        return map[y][x] == '⬛';
     }
 
     public void setxPt(int x) {
@@ -92,13 +92,13 @@ public class Board {
     public boolean validMove(String letter, int x, int y) {
         switch (letter) {
             case "W":
-                return x - 1 >= 0 && !wall(x - 1, y);
+                return x - 1 >= 0 && !wall(x, y);
             case "A":
-                return y - 1 >= 0 && !wall(x, y - 1);
+                return y - 1 >= 0 && !wall(x, y);
             case "S":
-                return x + 1 < map.length && !wall(x + 1, y);
+                return x + 1 < map.length && !wall(x, y);
             case "D":
-                return y + 1 < map[0].length && !wall(x, y + 1);
+                return y + 1 < map[0].length && !wall(x, y);
             default:
                 return false;
         }
