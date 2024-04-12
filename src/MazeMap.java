@@ -72,11 +72,7 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
     private void movePts(String direction) {
         int newX = map.getXPt();
         int newY = map.getYPt();
-        System.out.println(newX + ", " + newY);
-        System.out.println("here");
-        //if (newX >= 0 && newX < map.getRows() && newY >= 0 && newY < map.getCols() && !map.wall(newX, newY)) {
         if (map.move(direction)) {
-            System.out.println("in here");
             if (map.isGoalReached(map.getXPt(), map.getYPt())) {
                 finished = true;
                 JOptionPane.showMessageDialog(this, "Congratulations! You reached the goal!");
@@ -87,10 +83,8 @@ public class MazeMap extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("Test");
         if (map != null) {
             int keyCode = e.getKeyCode();
-            System.out.println("test2");
             switch (keyCode) {
                 case KeyEvent.VK_W:
                     movePts("W");
